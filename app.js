@@ -43,7 +43,6 @@ app.get('/api/:id1/:id2', function (req, res) {
 
 app.post('/api/faturacao', function (req, res) {
     var body = req.body;
-    body = JSON.parse(body);
     console.log('Request: ' + body);
     var products = [];
     var product;
