@@ -42,7 +42,7 @@ app.get('/api/:id1/:id2', function (req, res) {
 //POST FATURA MOLONI
 
 app.post('/api/faturacao', function (req, res) {
-    var body = JSON.parse(req.body);
+    var body = req.body;
     console.log('Request: ' + body);
     var products = [];
     var product;
