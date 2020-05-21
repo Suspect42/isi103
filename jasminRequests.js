@@ -13,7 +13,7 @@ function refreshToken(callback) {
         },
         form: {
             'client_id': 'ISIG103',
-            'client_secret': '648fe143-0f75-4d75-9f54-10280c309845',
+            'client_secret': 'ce99dbc0-6cdf-4bf9-b3e2-44b072056edb',
             'grant_type': 'client_credentials',
             'scope': 'application'
         }
