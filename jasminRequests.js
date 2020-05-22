@@ -13,7 +13,7 @@ function refreshToken(callback) {
         },
         form: {
             'client_id': 'ISIG103',
-            'client_secret': 'ce99dbc0-6cdf-4bf9-b3e2-44b072056edb',
+            'client_secret': 'c2ce0e1c-6da9-4b40-982a-94d90faae1a2',
             'grant_type': 'client_credentials',
             'scope': 'application'
         }
@@ -53,7 +53,6 @@ function getBaree(callback) {
                 itemKey: body[i].itemKey,
                 price: body[i].priceListLines[0].priceAmount.amount
             };
-            console.log(product);
             products.push(product);
         };
 
