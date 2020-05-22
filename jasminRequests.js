@@ -57,16 +57,17 @@ function getBaree(callback) {
                 products.push(product);
             }
         };
-
         bar = {
             campus: 'Campus de Azurem',
             name: 'Bar da Escola de Engenharia',
             products: products
         };
-
         return callback(bar);
     });
+    
 }
+
+
 
 module.exports.getBaree = getBaree;
 module.exports.refreshToken = refreshToken;
