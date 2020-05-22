@@ -117,7 +117,6 @@ function timeNow() {
     var yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
-    console.log('Today: ' + today);
 
     mm += 1;
     oneMonth = yyyy + '-' + mm + '-' + dd;
