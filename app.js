@@ -24,7 +24,7 @@ app.get('/api/:id', function (req, res) {
     res.send(verifyRoute.verifyRoute1(id));
 });
 
-//GET PRODUTOS JASMIN
+//GET PRODUTOS
 
 app.get('/api/:id1/:id2', function (req, res) {
     const id1 = req.params.id1;
@@ -39,31 +39,14 @@ app.get('/api/:id1/:id2', function (req, res) {
     });
 });
 
-//POST FATURA MOLONI
+//POST FATURA
 
 app.post('/api/faturacao', function (req, res) {
     var body = req.body;
-    console.log('Request: ' + body);
-    var products = [];
-    var product;
 
-    for (i in body) {
-        product = {
-            name: body[i].name,
-            qty: body[i].qty,
-            price: body[i].price
-        };
-        products.push(product);
-    }
-
-    console.log('Lista de Produtos Inicial: ' + products);
-
-    moloniRequests.refreshToken(function () {
-        moloniRequests.postFatura(products, function (data) {
-            res.send(data);
-        })
-    })
-
+    jasminRequests.postFatura(body, function (data){
+        res.send(data);
+    });
 });
 
 //LISTEN
