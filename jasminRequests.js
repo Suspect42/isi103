@@ -49,7 +49,7 @@ function getBaree(callback) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
         for (i in body) {
-            if (body[i].priceListLines.length() == 0) {
+            if (body[i].priceListLines.size() == 0) {
                 product = {
                     itemKey: body[i].itemKey,
                     price: 1.00
