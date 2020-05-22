@@ -49,18 +49,13 @@ function getBaree(callback) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
         for (i in body) {
-            if (body[i].priceListLines.size() == 0) {
-                product = {
-                    itemKey: body[i].itemKey,
-                    price: 1.00
-                };
-            } else {
+            if (i == 0) {} else {
                 product = {
                     itemKey: body[i].itemKey,
                     price: body[i].priceListLines[0].priceAmount.amount
                 };
+                products.push(product);
             }
-            products.push(product);
         };
 
         bar = {
