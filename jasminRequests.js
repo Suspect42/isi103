@@ -50,7 +50,8 @@ function getBaree(callback) {
         body = JSON.parse(response.body);
         for (i in body) {
             product = {
-                itemKey: body[i].itemKey
+                itemKey: body[i].itemKey,
+                price: body[i].priceListLines[0].priceAmount.amount
             };
             products.push(product);
         };
