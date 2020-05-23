@@ -43,7 +43,7 @@ app.get('/api/:id1/:id2', function (req, res) {
 
 app.post('/api/faturacao', function (req, res) {
     var body = req.body;
-    console.log(body);
+    //console.log(body);
 
     jasminRequests.postFatura(body, function (data){
         res.send(data);
