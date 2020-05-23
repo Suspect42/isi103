@@ -69,6 +69,8 @@ function getBaree(callback) {
 
 function postFatura(products, callback) {
 
+    console.log(products);
+
     var product = '';
     var invoiceProducts = [];
 
