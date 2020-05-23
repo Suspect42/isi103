@@ -69,7 +69,7 @@ function getBaree(callback) {
 
 function postFatura(products, callback) {
 
-    console.log(products);
+    //console.log(products);
 
     var product = '';
     var invoiceProducts = [];
@@ -90,6 +90,8 @@ function postFatura(products, callback) {
             itemTaxSchema: "NORMAL",
             deliveryDate: timeNow()
         }
+
+        invoiceProducts.push(product);
     }
 
     options = {
