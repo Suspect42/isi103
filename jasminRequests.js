@@ -94,6 +94,8 @@ function postFatura(products, callback) {
         invoiceProducts.push(product);
     }
 
+    console.log(invoiceProducts);
+
     options = {
         'method': 'POST',
         'url': 'https://my.jasminsoftware.com/api/236218/236218-0001/billing/invoices/',
