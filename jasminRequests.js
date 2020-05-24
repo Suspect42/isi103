@@ -91,32 +91,30 @@ function postFatura(products, callback) {
             deliveryDate: timeNow()
         }
 
-        console.log(product);
-
-        invoiceProducts.push(product);
+        invoiceProducts.push(JSON.stringify(product));
     }
 
     var body = {
-        "documentType": "FA",
-        "serie": "2020",
-        "seriesNumber": 1,
-        "company": "ISI",
-        "paymentTerm": "01",
-        "paymentMethod": "NUM",
-        "currency": "EUR",
-        "documentDate": timeNow(),
-        "postingDate": timeNow(),
-        "buyerCustomerParty": "INDIF",
-        "buyerCustomerPartyName": "Cliente Indiferenciado",
-        "accountingPartyName": "Cliente Indiferenciado",
-        "exchangeRate": 1,
-        "discount": 0,
-        "loadingCountry": "PT",
-        "unloadingCountry": "PT",
-        "isExternal": false,
-        "isManual": false,
-        "isWsCommunicable": false,
-        "documentLines": invoiceProducts
+        documentType: "FA",
+        serie: "2020",
+        seriesNumber: 1,
+        company: "ISI",
+        paymentTerm: "01",
+        paymentMetho: "NUM",
+        currency: "EUR",
+        documentDate: timeNow(),
+        postingDate: timeNow(),
+        buyerCustomerParty: "INDIF",
+        buyerCustomerPartyName: "Cliente Indiferenciado",
+        accountingPartyName: "Cliente Indiferenciado",
+        exchangeRate: 1,
+        discount: 0,
+        loadingCountry: "PT",
+        unloadingCountry: "PT",
+        isExternal: false,
+        isManual: false,
+        isWsCommunicable: false,
+        documentLines: invoiceProducts
     }
 
     //console.log(body);
