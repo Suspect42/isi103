@@ -91,6 +91,8 @@ function postFatura(products, callback) {
             deliveryDate: timeNow()
         }
 
+        console.log(product);
+
         invoiceProducts.push(product);
     }
 
@@ -117,7 +119,7 @@ function postFatura(products, callback) {
         "documentLines": invoiceProducts
     }
 
-    console.log(body);
+    //console.log(body);
 
     options = {
         'method': 'POST',
