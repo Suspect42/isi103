@@ -94,8 +94,6 @@ function postFatura(products, callback) {
         invoiceProducts.push(product);
     }
 
-    console.log(JSON.stringify(invoiceProducts));
-
     var body = {
         "documentType": "FA",
         "serie": "2020",
@@ -119,9 +117,7 @@ function postFatura(products, callback) {
         "documentLines": invoiceProducts
     }
 
-    console.log(invoiceProducts);
-
-
+    console.log(body);
 
     options = {
         'method': 'POST',
