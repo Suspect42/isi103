@@ -92,6 +92,10 @@ function postFatura(products, callback) {
         invoiceProducts.push(product);
     }
 
+    var body = "{\n    \"documentType\": \"FA\",\n    \"serie\": \"2020\",\n    \"seriesNumber\": 1,\n    \"company\": \"ISI\",\n    \"paymentTerm\": \"01\",\n    \"paymentMethod\": \"NUM\",\n    \"currency\": \"EUR\",\n    \"documentDate\": \"" + timeNow() + "\",\n    \"postingDate\":" + timeNow() + " \"\",\n    \"buyerCustomerParty\": \"INDIF\",\n    \"buyerCustomerPartyName\": \"Cliente Indiferenciado\",\n    \"accountingPartyName\": \"Cliente Indiferenciado\",\n    \"exchangeRate\": 1,\n    \"discount\": 0,\n    \"loadingCountry\": \"PT\",\n    \"unloadingCountry\": \"PT\",\n    \"isExternal\": false,\n    \"isManual\": false,\n    \"isWsCommunicable\": false,\n    \"documentLines\":" + JSON.stringify(invoiceProducts) + "\n }";
+
+    console.log(body);
+
     options = {
         'method': 'POST',
         'url': 'https://my.jasminsoftware.com/api/236218/236218-0001/billing/invoices/',
