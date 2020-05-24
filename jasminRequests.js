@@ -92,9 +92,9 @@ function postFatura(products, callback) {
         invoiceProducts.push(product);
     }
 
-    var body = "{\n    \"documentType\": \"FA\",\n    \"serie\": \"2020\",\n    \"seriesNumber\": 1,\n    \"company\": \"ISI\",\n    \"paymentTerm\": \"01\",\n    \"paymentMethod\": \"NUM\",\n    \"currency\": \"EUR\",\n    \"documentDate\": \"" + timeNow() + "\",\n    \"postingDate\":" + timeNow() + " \",\n    \"buyerCustomerParty\": \"INDIF\",\n    \"buyerCustomerPartyName\": \"Cliente Indiferenciado\",\n    \"accountingPartyName\": \"Cliente Indiferenciado\",\n    \"exchangeRate\": 1,\n    \"discount\": 0,\n    \"loadingCountry\": \"PT\",\n    \"unloadingCountry\": \"PT\",\n    \"isExternal\": false,\n    \"isManual\": false,\n    \"isWsCommunicable\": false,\n    \"documentLines\":" + JSON.stringify(invoiceProducts) + " \ \n }";
+    //var body = "{\n    \"documentType\": \"FA\",\n    \"serie\": \"2020\",\n    \"seriesNumber\": 1,\n    \"company\": \"ISI\",\n    \"paymentTerm\": \"01\",\n    \"paymentMethod\": \"NUM\",\n    \"currency\": \"EUR\",\n    \"documentDate\": \"" + timeNow() + "\",\n    \"postingDate\":" + timeNow() + " \",\n    \"buyerCustomerParty\": \"INDIF\",\n    \"buyerCustomerPartyName\": \"Cliente Indiferenciado\",\n    \"accountingPartyName\": \"Cliente Indiferenciado\",\n    \"exchangeRate\": 1,\n    \"discount\": 0,\n    \"loadingCountry\": \"PT\",\n    \"unloadingCountry\": \"PT\",\n    \"isExternal\": false,\n    \"isManual\": false,\n    \"isWsCommunicable\": false,\n    \"documentLines\":" + JSON.stringify(invoiceProducts) + " \ \n }";
 
-    console.log(body);
+    //console.log(body);
 
     options = {
         'method': 'POST',
@@ -109,6 +109,7 @@ function postFatura(products, callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
+        console.log(response.body);
         return callback(response.body);
     });
 
