@@ -117,7 +117,7 @@ function postFatura(products, callback) {
         documentLines: invoiceProducts
     }
 
-    //console.log(body);
+    console.log(JSON.stringify(body));
 
     options = {
         'method': 'POST',
