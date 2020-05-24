@@ -128,7 +128,6 @@ function postFatura(products, callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        console.log(response.body);
         return callback(response.body);
     });
 
