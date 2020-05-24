@@ -100,7 +100,7 @@ function postFatura(products, callback) {
         paymentTerm: "01",
         paymentMethod: "NUM",
         currency: "EUR",
-        documentDate: timeNow(),
+        documentDate: "12-18-2020",
         postingDate: timeNow(),
         buyerCustomerParty: "INDIF",
         buyerCustomerPartyName: "Cliente Indiferenciado",
