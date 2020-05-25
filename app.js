@@ -47,7 +47,9 @@ app.post('/api/faturacao', function (req, res) {
 
     jasminRequests.refreshToken(function () {
         jasminRequests.postFatura(body, function (data) {
-            res.send(data);
+            jasminRequests.getFatura(data, function (data) {
+                res.send(data);
+            })
         });
     })
 });
