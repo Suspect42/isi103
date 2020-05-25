@@ -88,7 +88,6 @@ function postFatura(products, callback) {
             itemTaxSchema: "NORMAL",
             deliveryDate: timeNow()
         }
-
         invoiceProducts.push(product);
     }
 
@@ -128,9 +127,27 @@ function postFatura(products, callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
+        console.log(response.body);
         return callback(response.body);
     });
 
+}
+
+function getFatura(id, callback) {
+
+    options = {
+        'method': 'GET',
+        'url': 'https://my.jasminsoftware.com/api/236218/236218-0001/billing/invoices/' + id,
+        'headers': {
+            'Authorization': 'bearer ' + token,
+            'Content-Type': 'application/json'
+        }
+    };
+
+    request(options, function (error, response) {
+        if (error) throw new Error(error);
+        return callback(response.body);
+    });
 }
 
 function timeNow() {
@@ -149,7 +166,7 @@ function timeNow() {
     return today;
 }
 
-
+module.exports.getFatura = getFatura;
 module.exports.postFatura = postFatura;
 module.exports.getBaree = getBaree;
 module.exports.refreshToken = refreshToken;
