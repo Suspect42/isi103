@@ -136,6 +136,7 @@ function postFatura(products, callback) {
 function getFatura(id, callback) {
 
     id = id.replace('"','');
+    id = id.replace('"','');
 
     console.log(id);
 
