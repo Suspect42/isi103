@@ -4,8 +4,9 @@ const app = express();
 const port = process.env.PORT;
 
 const verifyRoute = require('./routes');
+const carrinho = require('./carrinho');
 const jasminRequests = require('./jasminRequests');
-const paypalRequests = require('./paypalRequests');
+//const paypalRequests = require('./paypalRequests');
 //const moloniRequests = require('./moloniRequests');
 
 var bodyParser = require('body-parser');
@@ -14,15 +15,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//GET
+//GET 
 
 app.get('/', function (req, res) {
     res.send('API');
-});
-
-app.get('/api/:id', function (req, res) {
-    const id = req.params.id;
-    res.send(verifyRoute.verifyRoute1(id));
 });
 
 //GET PRODUTOS
@@ -31,7 +27,7 @@ app.get('/api/:id1/:id2', function (req, res) {
     const id1 = req.params.id1;
     const id2 = req.params.id2;
 
-    verifyRoute.verifyRoute2(id1, id2, function () {
+    verifyRoute.verifyRoute(id1, id2, function () {
         jasminRequests.refreshToken(function () {
             jasminRequests.getBaree(function (data) {
                 res.send(data);
@@ -40,9 +36,25 @@ app.get('/api/:id1/:id2', function (req, res) {
     });
 });
 
+//POST ARTIGO CARRINHO
+
+app.post('/api/carrinho/artigo', function(req, res){
+    carrinho.putArtigo(req.body, function(){
+        res.send(req.body.itemKey + ' adicionado ao carrinho!');
+    });
+});
+
+//POST RESET CARRINHO
+
+app.post('/api/carrinho/reset', function(req, res){
+    carrinho.resetCarrinho(function(){
+        res.send('O carrinho está vazio!');
+    });
+});
+
 //POST FATURA
 
-app.post('/api/faturacao', function (req, res) {
+app.post('/api/fatura', function (req, res) {
     var body = req.body;
     //console.log(body);
 
@@ -50,21 +62,9 @@ app.post('/api/faturacao', function (req, res) {
         jasminRequests.postFatura(body, function (data) {
             jasminRequests.getFatura(data, function (data) {
                 res.send(data);
-            })
+            });
         });
-    })
-});
-
-//POST PAYMENT
-
-app.post('/api/pagamento', function(req,res){
-    var body = req.body;
-
-    paypalRequests.refreshToken(function(){
-        paypalRequests.postPagamento(body, function(data){
-            res.send(data);
-        })
-    })
+    });
 });
 
 //LISTEN
