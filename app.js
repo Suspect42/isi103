@@ -5,7 +5,8 @@ const port = process.env.PORT;
 
 const verifyRoute = require('./routes');
 const jasminRequests = require('./jasminRequests');
-const moloniRequests = require('./moloniRequests');
+const paypalRequests = require('./paypalRequests');
+//const moloniRequests = require('./moloniRequests');
 
 var bodyParser = require('body-parser');
 
@@ -51,6 +52,18 @@ app.post('/api/faturacao', function (req, res) {
                 res.send(data);
             })
         });
+    })
+});
+
+//POST PAYMENT
+
+app.post('/api/pagamento', function(req,res){
+    var body = req.body;
+
+    paypalRequests.refreshToken(function(){
+        paypalRequests.postPagamento(body, function(data){
+            res.send(data);
+        })
     })
 });
 
