@@ -36,6 +36,12 @@ app.get('/api/:id1/:id2', function (req, res) {
     });
 });
 
+//GET CARRINHO
+
+app.get('/api/carrinho', function(req, res){
+    res.send(carrinho.artigos);
+})
+
 //POST ARTIGO CARRINHO
 
 app.post('/api/carrinho/artigo', function(req, res){
@@ -56,7 +62,6 @@ app.post('/api/carrinho/reset', function(req, res){
 
 app.post('/api/fatura', function (req, res) {
     var body = req.body;
-    //console.log(body);
 
     jasminRequests.refreshToken(function () {
         jasminRequests.postFatura(body, function (data) {
