@@ -89,7 +89,7 @@ function postFatura(products, callback) {
             deliveryDate: timeNow()
         }
         invoiceProducts.push(product);
-    }
+    };
 
     var body = {
         documentType: "FA",
