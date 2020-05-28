@@ -40,7 +40,7 @@ app.get('/api/:id1/:id2', function (req, res) {
 
 app.get('/api/carrinho', function(req, res){
     res.send(carrinho.artigos);
-})
+});
 
 //POST ARTIGO CARRINHO
 
