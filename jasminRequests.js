@@ -53,7 +53,8 @@ function getBaree(callback) {
                 product = {
                     itemKey: body[i].itemKey,
                     price: body[i].priceListLines[0].priceAmount.amount,
-                    image: body[i].image
+                    image: body[i].image,
+                    brand: body[i].brand
                 };
                 products.push(product);
             }
