@@ -52,7 +52,8 @@ function getBaree(callback) {
             if (body[i].itemKey == 'PORTES') { } else {
                 product = {
                     itemKey: body[i].itemKey,
-                    price: body[i].priceListLines[0].priceAmount.amount
+                    price: body[i].priceListLines[0].priceAmount.amount,
+                    image: body[i].image
                 };
                 products.push(product);
             }
