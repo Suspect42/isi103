@@ -1,21 +1,10 @@
 var artigos = [];
 
-function putArtigo(artigo, callback){
-    var cont = 0;
-
-    for(i in artigos){
-        if(artigos[i] == artigo.itemKey){
-            artigos[i].qty += 1;
-            cont += 1;
-        }
-    }
-
-    if(cont == 0){
-        artigos.push(artigo);
-    }
+function setArtigos(produtos, callback){
+    artigos = produtos;
 
     return callback();
-};
+}
 
 function resetCarrinho(callback){
     artigos = [];
@@ -23,6 +12,6 @@ function resetCarrinho(callback){
     return callback();
 };
 
-module.exports.putArtigo = putArtigo;
+module.exports.setArtigos = setArtigos;
 module.exports.resetCarrinho = resetCarrinho;
 module.exports.artigos = artigos;
