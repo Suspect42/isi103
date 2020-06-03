@@ -48,7 +48,6 @@ app.post('/api/carrinho', function(req, res){
     console.log(req.body)
     carrinho.setArtigos(req.body, function(){
         res.send('Artigos adicionados ao carrinho!');
-        console.log(carrinho.artigos)
     });
 });
 
