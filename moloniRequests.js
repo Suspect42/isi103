@@ -35,10 +35,7 @@ function postFatura(products, callback) {
     today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
 
-    mm = parseInt(mm)
-    mm += 1;
-    mm = String().padStart(1,'0')
-    console.log(mm)
+    mm = '07'
 
     oneMonth = yyyy + '-' + mm + '-' + dd;
     console.log(oneMonth)
