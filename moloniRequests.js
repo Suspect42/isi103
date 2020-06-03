@@ -33,17 +33,14 @@ function postFatura(products, callback) {
     var yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
-    console.log('Today: ' + today);
 
     mm += 1;
     oneMonth = yyyy + '-' + mm + '-' + dd;
-    console.log('OneMonth: ' + oneMonth);
 
     //
 
     getProducts(function (data) {
         var moloniProducts = data;
-        console.log('Moloni Products: ' + moloniProducts);
 
         var cont;
 
