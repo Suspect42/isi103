@@ -6,7 +6,7 @@ const port = process.env.PORT;
 const verifyRoute = require('./routes');
 const carrinho = require('./carrinho');
 const jasminRequests = require('./jasminRequests');
-//const moloniRequests = require('./moloniRequests');
+const moloniRequests = require('./moloniRequests');
 
 var bodyParser = require('body-parser');
 
@@ -62,13 +62,18 @@ app.post('/api/carrinho/reset', function(req, res){
 
 app.post('/api/fatura', function (req, res) {
     var body = req.body;
-    console.log(body)
 
     jasminRequests.refreshToken(function () {
         jasminRequests.postFatura(body, function (data) {
             jasminRequests.getFatura(data, function (data) {
-                res.send(data);
+                res.send('Fatura gerada no jasmin');
             });
+        });
+    });
+
+    moloniRequests.refreshToken(function(){
+        moloniRequests.postFatura(body, function(data){
+            res.send(data);
         });
     });
 });
