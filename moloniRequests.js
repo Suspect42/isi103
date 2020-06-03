@@ -82,12 +82,12 @@ function postFatura(products, callback) {
             'Cookie': 'PHPSESSID=rqt9oogc21lc504g58mhi6im83'
         },
         form: {
-            'company_id': '5',
+            'company_id': '128873',
             'date': today,
             'expiration_date': oneMonth,
             'maturity_date_id': '0',
-            'document_set_id': '285123',
-            'customer_id': '27450408',
+            'document_set_id': '273360',
+            'customer_id': '25484637',
             'alternate_address_id': '0',
             'our_reference': 'Nossa referência',
             'your_reference': 'Referência Cliente',
