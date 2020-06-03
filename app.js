@@ -65,15 +65,13 @@ app.post('/api/fatura', function (req, res) {
 
     jasminRequests.refreshToken(function () {
         jasminRequests.postFatura(body, function (data) {
-            jasminRequests.getFatura(data, function (data) {
-                res.send('Fatura gerada no jasmin');
+            jasminRequests.getFatura(data, function () {
+                moloniRequests.refreshToken(function(){
+                    moloniRequests.postFatura(body, function(data){
+                        res.send(data);
+                    });
+                });
             });
-        });
-    });
-
-    moloniRequests.refreshToken(function(){
-        moloniRequests.postFatura(body, function(data){
-            res.send(data);
         });
     });
 });
