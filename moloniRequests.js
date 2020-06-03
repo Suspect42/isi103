@@ -28,15 +28,16 @@ function postFatura(products, callback) {
     var today = new Date();
     var oneMonth;
 
-    var dd = (today.getDate()).padStart(2, '0');
-    var mm = (today.getMonth() + 1).padStart(2, '0');
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
 
-    mm = parseInt(mm);
-    console.log(mm + 1)
+    mm = parseInt(mm)
+    console.log(mm)
+
     oneMonth = yyyy + '-' + mm + '-' + dd;
     console.log(oneMonth)
 
