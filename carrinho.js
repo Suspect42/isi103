@@ -1,5 +1,9 @@
 var artigos = [];
 
+function getArtigos(){
+    return artigos;
+}
+
 function setArtigos(produtos, callback){
     artigos = produtos;
     console.log(artigos)
@@ -15,4 +19,4 @@ function resetCarrinho(callback){
 
 module.exports.setArtigos = setArtigos;
 module.exports.resetCarrinho = resetCarrinho;
-module.exports.artigos = artigos;
+module.exports.getArtigos = getArtigos;
