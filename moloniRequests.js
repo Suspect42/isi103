@@ -38,6 +38,10 @@ function postFatura(products, callback) {
     oneMonth = yyyy + '-' + mm + '-' + dd;
 
     //
+    var productsId = [];
+    var productsName = [];
+    var productsQty = [];
+    var productsPrice = [];
 
     getProducts(function (data) {
         var moloniProducts = data;
@@ -58,11 +62,6 @@ function postFatura(products, callback) {
                 });
             }
         };
-
-        var productsId = [];
-        var productsName = [];
-        var productsQty = [];
-        var productsPrice = [];
 
         for (i in products) {
             productsId.push(products[i].product_id);
