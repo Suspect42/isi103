@@ -46,11 +46,8 @@ app.get('/api/carrinho', function(req, res){
 
 app.post('/api/carrinho', function(req, res){
     carrinho.setArtigos(req.body, function(){
-        var titles = ''
-        for(i in req.body){
-            titles += i.itemKey
-        }
-        res.send(titles + ' adicionado ao carrinho!');
+        res.send('Artigos adicionados ao carrinho!');
+        console.log(carrinho.artigos)
     });
 });
 
