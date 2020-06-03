@@ -6,7 +6,6 @@ const port = process.env.PORT;
 const verifyRoute = require('./routes');
 const carrinho = require('./carrinho');
 const jasminRequests = require('./jasminRequests');
-//const paypalRequests = require('./paypalRequests');
 //const moloniRequests = require('./moloniRequests');
 
 var bodyParser = require('body-parser');
@@ -63,6 +62,7 @@ app.post('/api/carrinho/reset', function(req, res){
 
 app.post('/api/fatura', function (req, res) {
     var body = req.body;
+    console.log(body)
 
     jasminRequests.refreshToken(function () {
         jasminRequests.postFatura(body, function (data) {
