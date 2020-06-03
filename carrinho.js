@@ -2,6 +2,7 @@ var artigos = [];
 
 function setArtigos(produtos, callback){
     artigos = produtos;
+    console.log(artigos)
 
     return callback();
 }
