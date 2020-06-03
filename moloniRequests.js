@@ -33,9 +33,11 @@ function postFatura(products, callback) {
     var yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
+    console.log(today);
 
-    mm += 1;
+    mm = m + 1;
     oneMonth = yyyy + '-' + mm + '-' + dd;
+    console.log(oneMonth)
 
     //
     var productsId = [];
