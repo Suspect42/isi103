@@ -6,7 +6,6 @@ function getArtigos(){
 
 function setArtigos(produtos, callback){
     artigos = produtos;
-    console.log(artigos)
 
     return callback();
 }
