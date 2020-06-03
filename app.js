@@ -42,10 +42,10 @@ app.get('/api/carrinho', function(req, res){
     res.send(carrinho.artigos);
 });
 
-//POST ARTIGO CARRINHO
+//POST CARRINHO
 
-app.post('/api/carrinho/artigo', function(req, res){
-    carrinho.putArtigo(req.body, function(){
+app.post('/api/carrinho', function(req, res){
+    carrinho.setArtigos(req.body, function(){
         res.send(req.body.itemKey + ' adicionado ao carrinho!');
     });
 });
