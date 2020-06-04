@@ -164,6 +164,7 @@ function postProduct(name, price, callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
+        return console.log(body)
         return callback(body);
     });
 };
