@@ -46,10 +46,10 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        /*console.log('Moloni Products:')
+        console.log('Moloni Products:')
         console.log(data)
         console.log('Invoicing Products:')
-        console.log(products)*/
+        console.log(products)
 
         var cont;
 
