@@ -79,6 +79,7 @@ function postFatura(products, callback) {
                     }
                 });
             }
+            console.log(cont)
         };
 
         for (i in products) {
