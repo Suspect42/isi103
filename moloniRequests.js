@@ -47,21 +47,21 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        var moloniProducts = data;
-        console.log(moloniProducts)
+        var moloniProducts = JSON.parse(data);
+        console.log('Moloni Products' + moloniProducts)
 
         var cont;
 
         for (p in products) {
             cont = 0;
             for (mp in moloniProducts) {
-                if (moloniProducts[mp].name == products[p].name) {
-                    products[p].product_id = moloniProducts[mp].product_id;
+                if (mp.name == p.name) {
+                    p.product_id = mp.product_id;
                     cont += 1;
                 }
             }
             if (cont = 0) {
-                postProduct(products[p].name, products[p].price, function (data) {
+                postProduct(p.name, p.price, function (data) {
                     products[p].product_id = data.product_id;
                 });
             }
