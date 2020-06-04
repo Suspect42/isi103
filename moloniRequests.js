@@ -25,8 +25,6 @@ function refreshToken(callback) {
 //POST FATURA
 
 function postFatura(products, callback) {
-    console.log(products)
-
     var today = new Date();
     var oneMonth;
 
@@ -189,6 +187,7 @@ function getProducts(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
+        console.log(body);
 
         for (i in body) {
             product = {
