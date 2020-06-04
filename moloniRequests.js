@@ -189,12 +189,12 @@ function getProducts(callback) {
         body = JSON.parse(response.body);
 
         for (i in body) {
-            console.log(body[i]); 
             product = {
-                name: i.name,
-                product_id: i.product_id,
-                price: i.price
+                name: body[i].name,
+                product_id: body[i].product_id,
+                price: body[i].price
             }
+            console.log(product);
             products.push(product);
         };
 
