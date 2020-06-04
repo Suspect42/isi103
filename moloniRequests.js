@@ -49,7 +49,7 @@ function postFatura(products, callback) {
         /*console.log('Moloni Products:')
         console.log(data)
         console.log('Invoicing Products:')
-        console.log(products)*/
+        console.log(products)*/ 
 
         var cont;
 
@@ -69,6 +69,7 @@ function postFatura(products, callback) {
                 }
             }
             if (cont = 0) {
+                console.log('here')
                 postProduct(products[p].itemKey, products[p].price, function (data) {
                     products[p] = {
                         product_id: data.product_id,
