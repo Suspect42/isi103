@@ -48,7 +48,7 @@ function postFatura(products, callback) {
 
     getProducts(function (data) {
         var moloniProducts = JSON.parse(data);
-        console.log('Moloni Products' + moloniProducts)
+        console.log('Moloni Products: ' + moloniProducts)
 
         var cont;
 
@@ -177,13 +177,13 @@ function getProducts(callback) {
 
     var options = {
         'method': 'POST',
-        'url': 'https://api.moloni.pt/v1/products/getAll/?access_token=aefe4cd283dbb3b61e7dba127abda78f16d4bfcd',
+        'url': 'https://api.moloni.pt/v1/products/getAll/?access_token=' + token,
         'headers': {
-            'Content-Type': ['application/x-www-form-urlencoded', 'application/x-www-form-urlencoded'],
-            'Cookie': 'PHPSESSID=rqt9oogc21lc504g58mhi6im83'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Cookie': 'PHPSESSID=3lodrct23v79gdklqi4qd2ic72'
         },
         form: {
-            'company_id': '5'
+            'company_id': '128873'
         }
     };
 
@@ -193,9 +193,9 @@ function getProducts(callback) {
 
         for (i in body) {
             product = {
-                name: body[i].name,
-                product_id: body[i].product_id,
-                price: body[i].price
+                name: i.name,
+                product_id: i.product_id,
+                price: i.price
             };
             products.push(product);
         };
