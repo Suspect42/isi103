@@ -69,7 +69,6 @@ function postFatura(products, callback) {
                 }
             }
             if (cont == 0) {
-                console.log('here')
                 postProduct(products[p].itemKey, products[p].price, function (data) {
                     products[p] = {
                         product_id: data.product_id,
@@ -145,6 +144,8 @@ function postFatura(products, callback) {
 //POST PRODUTO
 
 function postProduct(name, price, callback) {
+    var reference = 0;
+    reference += 1;
     var options = {
         'method': 'POST',
         'url': 'https://api.moloni.pt/v1/products/insert/?access_token=' + token,
@@ -158,7 +159,7 @@ function postProduct(name, price, callback) {
             'type': '1',
             'name': name,
             'summary': 'Uma descrição do artigo',
-            'reference': 'REF0125',
+            'reference': 'REF' + reference,
             'ean': '',
             'price': price,
             'unit_id': '1141117',
