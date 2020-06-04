@@ -46,16 +46,18 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        console.log('Moloni Products:')
+        /*console.log('Moloni Products:')
         console.log(data)
         console.log('Invoicing Products:')
-        console.log(products)
+        console.log(products)*/
 
         var cont;
 
         for (p in products) {
+            console.log(products[p])
             cont = 0;
             for (i in data) {
+                console.log(data[i])
                 if (data[i].name == products[p].itemKey) {
                     products[p] = {
                         name: data[i].name,
