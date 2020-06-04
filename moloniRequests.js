@@ -46,8 +46,8 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        console.log('Moloni Products: ' + data)
-        console.log('Invoicing Products: ' + products)
+        //console.log('Moloni Products: ' + data)
+        //console.log('Invoicing Products: ' + products)
 
         var cont;
 
@@ -202,6 +202,8 @@ function getProducts(callback) {
             } 
             products.push(product);
         };
+
+        console.log('Moloni Products: ' + products);
 
         return callback(products);
     });
