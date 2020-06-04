@@ -68,7 +68,7 @@ function postFatura(products, callback) {
                     cont += 1;
                 }
             }
-            if (cont = 0) {
+            if (cont == 0) {
                 console.log('here')
                 postProduct(products[p].itemKey, products[p].price, function (data) {
                     products[p] = {
@@ -79,7 +79,6 @@ function postFatura(products, callback) {
                     }
                 });
             }
-            console.log(cont)
         };
 
         for (i in products) {
