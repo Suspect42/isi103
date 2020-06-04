@@ -187,14 +187,14 @@ function getProducts(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
-        console.log(body);
 
-        for (i in body) {
+        for (var i = 0; i < body.length(); i++) {
             product = {
-                name: i.name,
-                product_id: i.product_id,
-                price: i.price
+                name: body[i].name,
+                product_id: body[i].product_id,
+                price: body[i].price
             };
+            console.log(product)
             products.push(product);
         };
 
