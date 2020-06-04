@@ -25,7 +25,6 @@ function refreshToken(callback) {
 //POST FATURA
 
 function postFatura(products, callback) {
-    console.log(products);
 
     var today = new Date();
     var oneMonth;
@@ -47,8 +46,8 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        var moloniProducts = JSON.parse(data);
-        console.log('Moloni Products: ' + moloniProducts)
+        var moloniProducts = data;
+        console.log('Moloni Products: ' + moloniProducts);
 
         var cont;
 
