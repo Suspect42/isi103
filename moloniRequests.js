@@ -46,7 +46,7 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        var moloniProducts = data;
+        var moloniProducts = JSON.parse(data);
         console.log('Moloni Products: ' + moloniProducts);
 
         var cont;
