@@ -46,22 +46,25 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        var moloniProducts = data;
-        console.log('Moloni Products: ' + moloniProducts);
 
         var cont;
 
         for (p in products) {
             cont = 0;
-            for (mp in moloniProducts) {
-                if (mp.name == p.name) {
-                    p.product_id = mp.product_id;
+            for (i in data) {
+                if (data[i].name == products[p].itemKey) {
+                    products[p].product_id = data[i].product_id;
                     cont += 1;
                 }
             }
             if (cont = 0) {
-                postProduct(p.name, p.price, function (data) {
-                    products[p].product_id = data.product_id;
+                postProduct(products[p].itemKey, products[p].price, function (data) {
+                    products[p].product_id = {
+                        product_id: data.product_id,
+                        name: products[p].itemKey,
+                        qty: products[p].qty,
+                        price: products[p].price
+                    }
                 });
             }
         };
@@ -138,8 +141,8 @@ function postProduct(name, price, callback) {
             'Cookie': 'PHPSESSID=rqt9oogc21lc504g58mhi6im83'
         },
         form: {
-            'company_id': '5',
-            'category_id': '2292125',
+            'company_id': '128873',
+            'category_id': '2186789',
             'type': '1',
             'name': name,
             'summary': 'Uma descrição do artigo',
@@ -153,7 +156,7 @@ function postProduct(name, price, callback) {
             'pos_favorite': '0',
             'at_product_category': 'M',
             'exemption_reason': 'Amigo',
-            'taxes[0][tax_id]': '1959170',
+            'taxes[0][tax_id]': '1935349',
             'taxes[0][value]': '23',
             'taxes[0][order]': '0',
             'taxes[0][cumulative]': '1'
