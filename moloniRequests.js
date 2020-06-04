@@ -46,6 +46,8 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
+        console.log('Moloni Products: ' + data)
+        console.log('Invoicing Products: ' + products)
 
         var cont;
 
