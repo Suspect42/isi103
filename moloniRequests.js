@@ -25,6 +25,8 @@ function refreshToken(callback) {
 //POST FATURA
 
 function postFatura(products, callback) {
+    console.log(products);
+
     var today = new Date();
     var oneMonth;
 
@@ -193,12 +195,9 @@ function getProducts(callback) {
                 name: body[i].name,
                 product_id: body[i].product_id,
                 price: body[i].price
-            }
-            console.log(product);
+            } 
             products.push(product);
         };
-
-        return console.log(products);
 
         return callback(products);
     });
