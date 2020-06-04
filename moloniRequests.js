@@ -40,10 +40,10 @@ function postFatura(products, callback) {
     oneMonth = yyyy + '-' + mm + '-' + dd;
 
     //
-    var productsId = [];
-    var productsName = [];
-    var productsQty = [];
-    var productsPrice = [];
+    var productsId = '';
+    var productsName = '';
+    var productsQty = '';
+    var productsPrice = '';
 
     getProducts(function (data) {
         /*console.log('Moloni Products:')
