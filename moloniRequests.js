@@ -46,10 +46,10 @@ function postFatura(products, callback) {
     var productsPrice = [];
 
     getProducts(function (data) {
-        console.log('Moloni Products:')
+        /*console.log('Moloni Products:')
         console.log(data)
         console.log('Invoicing Products:')
-        console.log(products)
+        console.log(products)*/
 
         var cont;
 
@@ -57,13 +57,18 @@ function postFatura(products, callback) {
             cont = 0;
             for (i in data) {
                 if (data[i].name == products[p].itemKey) {
-                    products[p].product_id = data[i].product_id;
+                    products[p] = {
+                        name: data[i].name,
+                        product_id: data[i].product_id,
+                        price: data[i].price,
+                        qty: products[p].qty
+                    }
                     cont += 1;
                 }
             }
             if (cont = 0) {
                 postProduct(products[p].itemKey, products[p].price, function (data) {
-                    products[p].product_id = {
+                    products[p] = {
                         product_id: data.product_id,
                         name: products[p].itemKey,
                         qty: products[p].qty,
