@@ -49,7 +49,7 @@ function postFatura(products, callback) {
         console.log('Moloni Products:')
         console.log(data)
         console.log('Invoicing Products:')
-        consolee.log(products)
+        console.log(products)
 
         var cont;
 
