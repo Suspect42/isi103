@@ -25,6 +25,8 @@ function refreshToken(callback) {
 //POST FATURA
 
 function postFatura(products, callback) {
+    console.log(products)
+
     var today = new Date();
     var oneMonth;
 
@@ -33,12 +35,10 @@ function postFatura(products, callback) {
     var yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
-    console.log(today);
 
     mm = '07'
 
     oneMonth = yyyy + '-' + mm + '-' + dd;
-    console.log(oneMonth)
 
     //
     var productsId = [];
