@@ -203,7 +203,7 @@ function getProducts(callback) {
             products.push(product);
         };
 
-        console.log('Moloni Products: ' + JSON.parse(products));
+        console.log('Moloni Products: ' + JSON.stringify(products));
 
         return callback(products);
     });
