@@ -87,6 +87,11 @@ function postFatura(products, callback) {
             productsPrice.push(products[i].price);
         };
 
+        console.log(productsId)
+        console.log(productsName)
+        console.log(productsQty)
+        console.log(productsPrice)
+
     });
 
     //
