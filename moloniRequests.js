@@ -128,7 +128,7 @@ function postFatura(products, callback) {
 //POST PRODUTO
 
 function postProduct(name, price, callback) {
-    var reference = 0;
+    var reference = 1;
     reference += 1;
     var options = {
         'method': 'POST',
