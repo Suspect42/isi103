@@ -40,18 +40,11 @@ function postFatura(products, callback) {
     oneMonth = yyyy + '-' + mm + '-' + dd;
 
     getProducts(function (data) {
-        /*console.log('Moloni Products:')
-        console.log(data)
-        console.log('Invoicing Products:')
-        console.log(products)*/ 
-
         var cont;
 
         for (p in products) {
-            console.log(products[p])
             cont = 0;
             for (i in data) {
-                console.log(data[i])
                 if (data[i].name == products[p].itemKey) {
                     products[p] = {
                         product_id: data[i].product_id,
@@ -127,6 +120,7 @@ function postFatura(products, callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
+        console.log(response.body)
         body = JSON.parse(response.body);
         return callback(body);
     });
