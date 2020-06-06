@@ -123,7 +123,7 @@ function postFatura(products, callback) {
             'exchange_currency_id': '77',
             'exchange_rate': '65.7932'
         }
-    };
+    }; 
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
