@@ -60,8 +60,8 @@ function postFatura(products, callback) {
                         value: ''
                     }
                     cont += 1;
-                }
-            }
+                };
+            };
             if (cont == 0) {
                 postProduct(products[p].itemKey, products[p].price, function (data) {
                     products[p] = {
@@ -78,7 +78,7 @@ function postFatura(products, callback) {
                         value: ''
                     }
                 });
-            }
+            };
         };
 
     });
@@ -163,8 +163,8 @@ function postProduct(name, price, callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
-        console.log('POST PRODUCT STATUS: ')
-        console.log(body)
+        console.log('POST PRODUCT STATUS: ');
+        console.log(body);
         return callback(body);
     });
 };
