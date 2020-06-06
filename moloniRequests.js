@@ -39,12 +39,6 @@ function postFatura(products, callback) {
 
     oneMonth = yyyy + '-' + mm + '-' + dd;
 
-    //
-    var productsId = [];
-    var productsName = [];
-    var productsQty = [];
-    var productsPrice = [];
-
     getProducts(function (data) {
         /*console.log('Moloni Products:')
         console.log(data)
@@ -60,10 +54,17 @@ function postFatura(products, callback) {
                 console.log(data[i])
                 if (data[i].name == products[p].itemKey) {
                     products[p] = {
-                        name: data[i].name,
                         product_id: data[i].product_id,
+                        name: data[i].name,
+                        summary: '',   
+                        qty: products[p].qty,       
                         price: data[i].price,
-                        qty: products[p].qty
+                        discount: '0',
+                        deduction_id: '0',
+                        order: '1',
+                        exemption_reason: 'M10',
+                        payment_method_id: '575493',
+                        value: ''
                     }
                     cont += 1;
                 }
@@ -73,24 +74,19 @@ function postFatura(products, callback) {
                     products[p] = {
                         product_id: data.product_id,
                         name: products[p].itemKey,
+                        summary: '',
                         qty: products[p].qty,
-                        price: products[p].price
+                        price: products[p].price,
+                        discount: '0',
+                        deduction_id: '0',
+                        order: '1',
+                        exemption_reason: 'M10',
+                        payment_method_id: '575493',
+                        value: ''
                     }
                 });
             }
         };
-
-        for (i in products) {
-            productsId.push(products[i].product_id);
-            productsName.push(products[i].name);
-            productsQty.push(products[i].qty);
-            productsPrice.push(products[i].price);
-        };
-
-        console.log(productsId)
-        console.log(productsName)
-        console.log(productsQty)
-        console.log(productsPrice)
 
     });
 
@@ -123,17 +119,7 @@ function postFatura(products, callback) {
             'notes': 'Documento de crédito',
             'status': '0',
             'net_value': '100',
-            'products[0][product_id]': productsId,
-            'products[0][name]': productsName,
-            'products[0][summary]': '',
-            'products[0][qty]': productsQty,
-            'products[0][price]': productsPrice,
-            'products[0][discount]': '0',
-            'products[0][deduction_id]': '0',
-            'products[0][order]': '1',
-            'products[0][exemption_reason]': 'M10',
-            'payments[0][payment_method_id]': '575493',
-            'payments[0][value]': '13.6792',
+            'products' : products,
             'exchange_currency_id': '77',
             'exchange_rate': '65.7932'
         }
