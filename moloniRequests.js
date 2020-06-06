@@ -120,7 +120,6 @@ function postFatura(products, callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        console.log(response.body)
         body = JSON.parse(response.body);
         return callback(body);
     });
@@ -164,6 +163,7 @@ function postProduct(name, price, callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
+        console.log('POST PRODUCT STATUS: ')
         console.log(body)
         return callback(body);
     });
