@@ -34,6 +34,18 @@ function getBaree(callback) {
     var products = [];
     var product = '';
     var bar = '';
+    var stock = [];
+    var stockRef = ''
+
+    getStock(function (data) {
+        for (i in data) {
+            stockRef = {
+                itemKey: data[i].itemKey,
+                stock: data[i].materialsItemWarehouses[0].stockBalance
+            };
+            stock.push(stockRef);
+        }
+    });
 
     options = {
         'method': 'GET',
@@ -49,17 +61,24 @@ function getBaree(callback) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
         for (i in body) {
-            if (body[i].itemKey == 'PORTES') { } else {
-                product = {
-                    itemKey: body[i].itemKey,
-                    price: body[i].priceListLines[0].priceAmount.amount,
-                    image: body[i].image,
-                    brand: body[i].brand,
-                    description: body[i].description
-                };
-                products.push(product);
+            for (j in stock) {
+                if (body[i].itemKey == 'PORTES') { } else {
+                    if(body[i].itemKey == stock[j].itemKey){
+                        product = {
+                            itemKey: body[i].itemKey,
+                            price: body[i].priceListLines[0].priceAmount.amount,
+                            image: body[i].image,
+                            brand: body[i].brand,
+                            description: body[i].description,
+                            stock: stock[j].stock
+                        };
+                        products.push(product);
+                    }   
+                }
             }
+
         };
+        console.log(products);
         bar = {
             campus: 'Campus de Azurem',
             name: 'Bar da Escola de Engenharia',
@@ -139,8 +158,8 @@ function postFatura(products, callback) {
 
 function getFatura(id, callback) {
 
-    id = id.replace('"','');
-    id = id.replace('"','');
+    id = id.replace('"', '');
+    id = id.replace('"', '');
 
     options = {
         'method': 'GET',
@@ -171,6 +190,23 @@ function timeNow() {
     oneMonth = yyyy + '-' + mm + '-' + dd;
 
     return today;
+}
+
+function getStock(callback) {
+    var options = {
+        'method': 'GET',
+        'url': 'https://my.jasminsoftware.com/api/236218/236218-0001/materialsCore/materialsItems',
+        'headers': {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+        }
+    };
+    request(options, function (error, response) {
+        if (error) throw new Error(error);
+        var body = response.body;
+        console.log(response.body);
+        return callback(body);
+    });
 }
 
 module.exports.getFatura = getFatura;
