@@ -80,11 +80,9 @@ function postFatura(products, callback) {
                 });
             };
         };
-        //console.log('MOLONI INVOICE PRODUCTS: ')
-        //console.log(products);
+        console.log('MOLONI INVOICE PRODUCTS: ')
+        console.log(products);
     });
-
-    //
 
     var options = {
         'method': 'POST',
@@ -118,8 +116,6 @@ function postFatura(products, callback) {
             'exchange_rate': '65.7932'
         }
     }; 
-
-    console.log(options)
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
