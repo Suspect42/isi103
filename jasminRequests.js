@@ -44,6 +44,7 @@ function getBaree(callback) {
                 stock: data[i].materialsItemWarehouses[0].stockBalance
             };
             stock.push(stockRef);
+            console.log(stockRef);
         }
     });
 
@@ -78,7 +79,7 @@ function getBaree(callback) {
             }
 
         };
-        console.log(products);
+        //console.log(products);
         bar = {
             campus: 'Campus de Azurem',
             name: 'Bar da Escola de Engenharia',
