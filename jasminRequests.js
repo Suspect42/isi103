@@ -37,9 +37,9 @@ function getBaree(callback) {
     var stock = [];
     var stockRef = ''
 
-    /*getStock(function (data) {
+    getStock(function (data) {
         
-    });*/
+    });
 
     options = {
         'method': 'GET',
