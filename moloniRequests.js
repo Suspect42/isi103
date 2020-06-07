@@ -80,6 +80,7 @@ function postFatura(products, callback) {
                 });
             };
         };
+        console.log('MOLONI INVOICE PRODUCTS: ')
         console.log(products);
     });
 
