@@ -200,8 +200,8 @@ function getStock(callback) {
     };
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        var body = response.body;
-        console.log(body)
+        var body = JSON.parse(response.body);
+        console.log(body.length)
         for (i in body) {
             stockRef = {
                 itemKey: body[i].itemKey
