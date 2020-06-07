@@ -35,10 +35,9 @@ function getBaree(callback) {
     var product = '';
     var bar = '';
     var stock = [];
-    var stockRef = ''
 
     getStock(function (data) {
-
+        stock = data;
     });
 
     options = {
@@ -72,7 +71,7 @@ function getBaree(callback) {
             }
 
         };
-        //console.log(products);
+        console.log(products);
         bar = {
             campus: 'Campus de Azurem',
             name: 'Bar da Escola de Engenharia',
@@ -208,9 +207,9 @@ function getStock(callback) {
             };
             stock.push(stockRef);
         }
-        console.log('STOCK RESPONSE:')
-        console.log(stock);
-        //return callback(body);
+        //console.log('STOCK RESPONSE:')
+        //console.log(stock);
+        return callback(stock);
     });
 }
 
