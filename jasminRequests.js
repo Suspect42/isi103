@@ -205,7 +205,7 @@ function getStock(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         var body = response.body;
-        console.log(response.body);
+        //console.log(response.body);
         return callback(body);
     });
 }
