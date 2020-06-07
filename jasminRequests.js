@@ -65,13 +65,15 @@ function getBaree(callback) {
                             description: body[i].description,
                             stock: stock[j].stock
                         };
+                        console.log('Product created: ')
+                        console.log(product);
                         products.push(product);
                     }
                 }
             }
 
         };
-        console.log(products);
+        //console.log(products);
         bar = {
             campus: 'Campus de Azurem',
             name: 'Bar da Escola de Engenharia',
