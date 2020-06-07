@@ -37,16 +37,9 @@ function getBaree(callback) {
     var stock = [];
     var stockRef = ''
 
-    getStock(function (data) {
-        for (i in data) {
-            stockRef = {
-                itemKey: data[i].itemKey,
-                stock: data[i].materialsItemWarehouses[0].stockBalance
-            };
-            stock.push(stockRef);
-            console.log(stockRef);
-        }
-    });
+    /*getStock(function (data) {
+        
+    });*/
 
     options = {
         'method': 'GET',
@@ -64,7 +57,7 @@ function getBaree(callback) {
         for (i in body) {
             for (j in stock) {
                 if (body[i].itemKey == 'PORTES') { } else {
-                    if(body[i].itemKey == stock[j].itemKey){
+                    if (body[i].itemKey == stock[j].itemKey) {
                         product = {
                             itemKey: body[i].itemKey,
                             price: body[i].priceListLines[0].priceAmount.amount,
@@ -74,7 +67,7 @@ function getBaree(callback) {
                             stock: stock[j].stock
                         };
                         products.push(product);
-                    }   
+                    }
                 }
             }
 
@@ -194,6 +187,9 @@ function timeNow() {
 }
 
 function getStock(callback) {
+    var stock = [];
+    var stockRef = '';
+
     var options = {
         'method': 'GET',
         'url': 'https://my.jasminsoftware.com/api/236218/236218-0001/materialsCore/materialsItems',
@@ -205,8 +201,15 @@ function getStock(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         var body = response.body;
+        for (i in body) {
+            stockRef = {
+                itemKey: body[i].itemKey,
+                stock: body[i].materialsItemWarehouses[0].stockBalance
+            };
+            stock.push(stockRef);
+        }
         console.log('STOCK RESPONSE:')
-        console.log(response.body);
+        console.log(stock);
         //return callback(body);
     });
 }
