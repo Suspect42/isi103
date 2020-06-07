@@ -201,16 +201,15 @@ function getStock(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         var body = JSON.parse(response.body);
-        console.log(body.length)
         for (i in body) {
             stockRef = {
-                itemKey: body[i].itemKey
-                //stock: body[i].materialsItemWarehouses.stockBalance
+                itemKey: body[i].itemKey,
+                stock: body[i].materialsItemWarehouses.stockBalance
             };
             stock.push(stockRef);
         }
-        //console.log('STOCK RESPONSE:')
-        //console.log(stock);
+        console.log('STOCK RESPONSE:')
+        console.log(stock);
         //return callback(body);
     });
 }
