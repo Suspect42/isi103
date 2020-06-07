@@ -37,14 +37,14 @@ app.get('/api/:id1/:id2', function (req, res) {
 
 //GET CARRINHO
 
-app.get('/api/carrinho', function(req, res){
+app.get('/api/carrinho', function (req, res) {
     res.send(carrinho.getArtigos());
 });
 
 //POST CARRINHO
 
-app.post('/api/carrinho', function(req, res){
-    carrinho.setArtigos(req.body, function(){
+app.post('/api/carrinho', function (req, res) {
+    carrinho.setArtigos(req.body, function () {
         res.send('Artigos adicionados ao carrinho!');
         console.log(carrinho.getArtigos())
     });
@@ -52,8 +52,8 @@ app.post('/api/carrinho', function(req, res){
 
 //POST RESET CARRINHO
 
-app.post('/api/carrinho/reset', function(req, res){
-    carrinho.resetCarrinho(function(){
+app.post('/api/carrinho/reset', function (req, res) {
+    carrinho.resetCarrinho(function () {
         res.send('O carrinho está vazio!');
     });
 });
@@ -66,8 +66,8 @@ app.post('/api/fatura', function (req, res) {
     jasminRequests.refreshToken(function () {
         jasminRequests.postFatura(body, function (data) {
             jasminRequests.getFatura(data, function () {
-                moloniRequests.refreshToken(function(){
-                    moloniRequests.postFatura(body, function(data){
+                moloniRequests.refreshToken(function () {
+                    moloniRequests.postFatura(body, function (data) {
                         res.send(data);
                     });
                 });
