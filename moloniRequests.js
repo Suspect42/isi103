@@ -113,7 +113,7 @@ function postFatura(products, callback) {
             'notes': 'Documento de crédito',
             'status': '0',
             'net_value': '100',
-            'products' : products,
+            'products' : JSON.stringify(products),
             'exchange_currency_id': '77',
             'exchange_rate': '65.7932'
         }
