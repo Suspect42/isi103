@@ -38,7 +38,7 @@ function getBaree(callback) {
     var stockRef = ''
 
     getStock(function (data) {
-        
+
     });
 
     options = {
@@ -201,6 +201,7 @@ function getStock(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         var body = response.body;
+        console.log(body.length)
         for (i in body) {
             stockRef = {
                 itemKey: body[i].itemKey
@@ -208,8 +209,8 @@ function getStock(callback) {
             };
             stock.push(stockRef);
         }
-        console.log('STOCK RESPONSE:')
-        console.log(stock);
+        //console.log('STOCK RESPONSE:')
+        //console.log(stock);
         //return callback(body);
     });
 }
