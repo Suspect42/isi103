@@ -75,7 +75,7 @@ function postFatura(products, callback) {
 
 function postFatura2(products, callback){
 
-    var invoiceProducts = products.toString();
+    var invoiceProducts = JSON.stringify(products);
     console.log('INVOICE PRODUCTS: ')
     console.log(invoiceProducts);
 
