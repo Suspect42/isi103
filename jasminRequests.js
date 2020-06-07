@@ -204,7 +204,7 @@ function getStock(callback) {
         for (i in body) {
             stockRef = {
                 itemKey: body[i].itemKey,
-                stock: body[i].materialsItemWarehouses.stockBalance
+                stock: body[i].materialsItemWarehouses[0].stockBalance
             };
             stock.push(stockRef);
         }
