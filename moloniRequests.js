@@ -82,8 +82,11 @@ function postFatura(products, callback) {
         };
         console.log('MOLONI INVOICE PRODUCTS: ')
         console.log(products);
+        postFatura2(products);
     });
+};
 
+function postFatura2(products){
     var options = {
         'method': 'POST',
         'url': 'https://api.moloni.pt/v1/invoiceReceipts/insert/?access_token=' + token,
@@ -124,7 +127,7 @@ function postFatura(products, callback) {
         console.log(body);
         return callback(body);
     });
-};
+}
 
 //POST PRODUTO
 
