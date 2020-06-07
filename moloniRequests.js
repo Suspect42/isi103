@@ -80,7 +80,7 @@ function postFatura(products, callback) {
                 });
             };
         };
-
+        console.log(products);
     });
 
     //
