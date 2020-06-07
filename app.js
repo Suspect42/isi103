@@ -69,7 +69,9 @@ app.post('/api/fatura', function (req, res) {
                 //res.send(data);
                 moloniRequests.refreshToken(function () {
                     moloniRequests.postFatura(body, function (data) {
-                        res.send(data);
+                        moloniRequests.postFatura2(data, function(data){
+                            res.send(data);
+                        })
                     });
                 });
             });
