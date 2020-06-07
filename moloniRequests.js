@@ -73,7 +73,7 @@ function postFatura(products, callback) {
     });
 };
 
-function postFatura2(products){
+function postFatura2(products, callback){
 
     var today = new Date();
     var oneMonth;
