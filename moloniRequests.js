@@ -67,13 +67,17 @@ function postFatura(products, callback) {
                 });
             };
         };
-        console.log('MOLONI INVOICE PRODUCTS: ')
-        console.log(products);
+        //console.log('MOLONI INVOICE PRODUCTS: ')
+        //console.log(products);
         return callback(products);
     });
 };
 
 function postFatura2(products, callback){
+
+    var invoiceProducts = products.toString();
+    console.log('INVOICE PRODUCTS: ')
+    console.log(invoiceProducts);
 
     var today = new Date();
     var oneMonth;
@@ -115,7 +119,7 @@ function postFatura2(products, callback){
             'notes': 'Documento de crédito',
             'status': '0',
             'net_value': '100',
-            'products' : JSON.stringify(products),
+            'products' : JSON.stringify(invoiceProducts),
             'exchange_currency_id': '77',
             'exchange_rate': '65.7932'
         }
