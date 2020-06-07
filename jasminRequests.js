@@ -73,8 +73,8 @@ function getBaree(callback) {
             }
 
         };
-        console.log('Lista de produtos: ')
-        console.log(products);
+        //console.log('Lista de produtos: ')
+        //console.log(products);
         bar = {
             campus: 'Campus de Azurem',
             name: 'Bar da Escola de Engenharia',
