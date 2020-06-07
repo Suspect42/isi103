@@ -26,19 +26,6 @@ function refreshToken(callback) {
 
 function postFatura(products, callback) {
 
-    var today = new Date();
-    var oneMonth;
-
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
-
-    today = yyyy + '-' + mm + '-' + dd;
-
-    mm = '07'
-
-    oneMonth = yyyy + '-' + mm + '-' + dd;
-
     getProducts(function (data) {
         var cont;
 
@@ -82,11 +69,25 @@ function postFatura(products, callback) {
         };
         console.log('MOLONI INVOICE PRODUCTS: ')
         console.log(products);
-        postFatura2(products);
+        return callback(products);
     });
 };
 
 function postFatura2(products){
+
+    var today = new Date();
+    var oneMonth;
+
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    mm = '07'
+
+    oneMonth = yyyy + '-' + mm + '-' + dd;
+
     var options = {
         'method': 'POST',
         'url': 'https://api.moloni.pt/v1/invoiceReceipts/insert/?access_token=' + token,
@@ -209,4 +210,5 @@ function getProducts(callback) {
 }
 
 module.exports.postFatura = postFatura;
+module.exports.postFatura2 = postFatura2;
 module.exports.refreshToken = refreshToken;
