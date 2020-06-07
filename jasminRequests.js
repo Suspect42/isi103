@@ -203,8 +203,8 @@ function getStock(callback) {
         var body = response.body;
         for (i in body) {
             stockRef = {
-                itemKey: body[i].itemKey,
-                stock: body[i].materialsItemWarehouses[0].stockBalance
+                itemKey: body[i].itemKey
+                //stock: body[i].materialsItemWarehouses.stockBalance
             };
             stock.push(stockRef);
         }
