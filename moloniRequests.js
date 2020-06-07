@@ -76,8 +76,8 @@ function postFatura(products, callback) {
 function postFatura2(products, callback){
 
     var invoiceProducts = JSON.stringify(products);
-    console.log('INVOICE PRODUCTS: ')
-    console.log(invoiceProducts);
+    //console.log('INVOICE PRODUCTS: ')
+    //console.log(invoiceProducts);
 
     var today = new Date();
     var oneMonth;
@@ -119,11 +119,14 @@ function postFatura2(products, callback){
             'notes': 'Documento de crédito',
             'status': '0',
             'net_value': '100',
-            'products' : JSON.stringify(invoiceProducts),
+            'products' : invoiceProducts,
             'exchange_currency_id': '77',
             'exchange_rate': '65.7932'
         }
-    }; 
+    };
+    
+    console.log('OPTIONS');
+    console.log(options);
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
