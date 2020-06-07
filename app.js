@@ -67,11 +67,11 @@ app.post('/api/fatura', function (req, res) {
         jasminRequests.postFatura(body, function (data) {
             jasminRequests.getFatura(data, function (data) {
                 res.send(data);
-                moloniRequests.refreshToken(function () {
+                /*moloniRequests.refreshToken(function () {
                     moloniRequests.postFatura(body, function (data) {
                         //res.send(data);
                     });
-                });
+                });*/
             });
         });
     });
