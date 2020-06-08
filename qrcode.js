@@ -11,6 +11,7 @@ function getQRCode(callback) {
         'method': 'GET',
         'url': 'http://api.qrserver.com/v1/create-qr-code/?data=' + JSON.stringify(FA) + '&size=300x300',
         'headers': {
+            'Accept' : 'image/png'
         }
     };
     request(options, function (error, response) {
