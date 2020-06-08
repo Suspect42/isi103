@@ -3,6 +3,8 @@ var options;
 var token;
 var body;
 
+var idFatura = '';
+
 function refreshToken(callback) {
 
     options = {
@@ -145,8 +147,9 @@ function postFatura(products, callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        console.log('JASMIN POST FATURA STATUS:');
-        console.log(response.body);
+        idFatura = response.body;
+        console.log('ID FATURA: ');
+        console.log(idFatura);
         return callback(response.body);
     });
 
