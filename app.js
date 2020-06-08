@@ -7,6 +7,7 @@ const verifyRoute = require('./routes');
 const carrinho = require('./carrinho');
 const jasminRequests = require('./jasminRequests');
 const moloniRequests = require('./moloniRequests');
+const qrcodeRequests = require('./qrcode');
 
 var bodyParser = require('body-parser');
 
@@ -18,6 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
     res.send('API');
+});
+
+//GET QRCODE
+
+app.get('/api/fatura/qrcode', function(req, res){
+    qrcodeRequests.getQRCode(function(qrcode){
+        res.send(qrcode);
+    });
 });
 
 //GET PRODUTOS
@@ -63,6 +72,7 @@ app.post('/api/carrinho/reset', function (req, res) {
 app.get('/api/fatura', function(req, res){
     jasminRequests.refreshToken(function(){
         jasminRequests.getFatura2(function(fatura){
+            qrcodeRequests.setFA(fatura);
             //console.log(fatura);
             res.send(fatura);
         });
