@@ -181,7 +181,9 @@ function getFatura2(callback) {
         
         for (i in documentLines) {
             console.log(documentLines[i].amount)
-            line = {              
+            line = {
+                item: documentLines[i].salesItem,
+                description: documentLines[i].description,              
                 custo: documentLines[i].unitPrice.amount,
                 quantidade: documentLines[i].quantity,
                 preco: documentLines[i].lineExtensionAmount.amount
