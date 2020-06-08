@@ -61,10 +61,12 @@ app.post('/api/carrinho/reset', function (req, res) {
 //GET FATURA
 
 app.get('/api/fatura', function(req, res){
-    jasminRequests.getFatura2(function(fatura){
-        //console.log(fatura);
-        res.send(fatura);
-    })
+    jasminRequests.refreshToken(function(){
+        jasminRequests.getFatura2(function(fatura){
+            //console.log(fatura);
+            res.send(fatura);
+        });
+    });
 })
 
 //POST FATURA
