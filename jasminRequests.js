@@ -169,14 +169,27 @@ function getFatura2(callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
+        var body = response.body;
+        var documentLines = body.documentLines;
+        var line = '';
+        var artigosFatura = [];
+        for (i in documentLines) {
+            line = {              
+                custo: documentLines[i].unitPrice.amount,
+                quantidade: documentLines[i].quantity,
+                preco: documentLines[i].amount
+            }
+            artigosFatura.push(line);
+        }
         //console.log('FATURA: ');
         //console.log(response.body);
         var fs = {
             idFatura: idFatura,
             data: body.postingDate,
-
+            total: body.payableAmount.amount,
+            artigos: artigosFatura
         };
-        return callback(response.body);
+        return callback(fs);
     });
 }
 
