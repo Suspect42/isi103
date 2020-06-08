@@ -125,8 +125,8 @@ function postFatura2(products, callback){
         }
     };
     
-    console.log('OPTIONS: ');
-    console.log(options);
+    //console.log('OPTIONS: ');
+    //console.log(options);
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
