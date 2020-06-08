@@ -131,8 +131,8 @@ function postFatura2(products, callback){
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
-        console.log('MOLONI POST FATURA STATUS:');
-        console.log(body);
+        //console.log('MOLONI POST FATURA STATUS:');
+        //console.log(body);
         return callback(body);
     });
 }
