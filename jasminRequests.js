@@ -88,7 +88,6 @@ function getBaree(callback) {
 }
 
 function postFatura(products, callback) {
-
     var product = '';
     var invoiceProducts = [];
 
@@ -119,7 +118,7 @@ function postFatura(products, callback) {
         paymentTerm: "01",
         paymentMethod: "NUM",
         currency: "EUR",
-        documentDate: "12-18-2020",
+        documentDate: timeNow(),
         postingDate: timeNow(),
         buyerCustomerParty: "INDIF",
         buyerCustomerPartyName: "Cliente Indiferenciado",
@@ -174,7 +173,7 @@ function getFatura2(callback) {
         //console.log(response.body);
         var fs = {
             idFatura: idFatura,
-            data: body.documentDate,
+            data: body.postingDate,
 
         };
         return callback(response.body);
