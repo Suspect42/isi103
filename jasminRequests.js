@@ -184,7 +184,7 @@ function getFatura2(callback) {
             line = {              
                 custo: documentLines[i].unitPrice.amount,
                 quantidade: documentLines[i].quantity,
-                preco: documentLines[i].amount
+                preco: documentLines[i].lineExtensionAmount.amount
             }
             artigosFatura.push(line);
         }
