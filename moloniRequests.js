@@ -17,7 +17,7 @@ function refreshToken(callback) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
         token = body.access_token;
-        console.log('OAuth 2.0 Moloni Token Updated!');
+        //console.log('OAuth 2.0 Moloni Token Updated!');
         return callback();
     });
 };
@@ -175,8 +175,8 @@ function postProduct(name, price, callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         body = JSON.parse(response.body);
-        console.log('POST PRODUCT STATUS: ');
-        console.log(body);
+        //console.log('POST PRODUCT STATUS: ');
+        //console.log(body);
         return callback(body);
     });
 };
