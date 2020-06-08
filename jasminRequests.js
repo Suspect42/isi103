@@ -170,6 +170,8 @@ function getFatura2(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         var body = response.body;
+        console.log('BODY: ');
+        console.log(body);
         var documentLines = body.documentLines;
         var line = '';
         var artigosFatura = [];
