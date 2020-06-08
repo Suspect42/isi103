@@ -191,7 +191,7 @@ function getFatura2(callback) {
             total: body.payableAmount.amount,
             artigos: artigosFatura
         };*/
-        return callback(fs);
+        //return callback(fs);
     });
 }
 
