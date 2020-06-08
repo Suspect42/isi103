@@ -185,12 +185,12 @@ function getFatura2(callback) {
         }
         //console.log('FATURA: ');
         //console.log(response.body);
-        var fs = {
+        /*var fs = {
             idFatura: idFatura,
             data: body.postingDate,
             total: body.payableAmount.amount,
             artigos: artigosFatura
-        };
+        };*/
         return callback(fs);
     });
 }
