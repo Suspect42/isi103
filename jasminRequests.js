@@ -158,6 +158,8 @@ function getFatura2(callback) {
     idFatura = idFatura.replace('"', '');
     idFatura = idFatura.replace('"', '');
 
+    console.log(idFatura);
+
     options = {
         'method': 'GET',
         'url': 'https://my.jasminsoftware.com/api/236218/236218-0001/billing/invoices/' + idFatura,
