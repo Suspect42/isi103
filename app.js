@@ -58,6 +58,15 @@ app.post('/api/carrinho/reset', function (req, res) {
     });
 });
 
+//GET FATURA
+
+app.get('/api/fatura', function(req, res){
+    jasminRequests.getFatura2(function(fatura){
+        //console.log(fatura);
+        res.send(fatura);
+    })
+})
+
 //POST FATURA
 
 app.post('/api/fatura', function (req, res) {
