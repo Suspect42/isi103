@@ -112,11 +112,11 @@ function postFatura(products, callback) {
     };
 
     var body = {
-        documentType: "FS",
+        documentType: "FA",
         serie: "2020",
         seriesNumber: 1,
         company: "ISI",
-        //paymentTerm: "01",
+        paymentTerm: "01",
         paymentMethod: "NUM",
         currency: "EUR",
         documentDate: "12-18-2020",
