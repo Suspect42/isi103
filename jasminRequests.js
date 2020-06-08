@@ -189,7 +189,7 @@ function getFatura2(callback) {
         var fs = {
             idFatura: idFatura,
             data: body.postingDate,
-            total: body.payableAmount.amount,
+            total: body.payableAmount[0].amount,
             artigos: artigosFatura
         };
         return callback(fs);
