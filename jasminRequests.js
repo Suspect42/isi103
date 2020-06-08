@@ -112,7 +112,7 @@ function postFatura(products, callback) {
     };
 
     var body = {
-        documentType: "FA",
+        documentType: "FS",
         serie: "2020",
         seriesNumber: 1,
         company: "ISI",
@@ -170,8 +170,13 @@ function getFatura2(callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        console.log('FATURA: ');
-        console.log(response.body);
+        //console.log('FATURA: ');
+        //console.log(response.body);
+        var fs = {
+            idFatura: idFatura,
+            data: body.documentDate,
+
+        };
         return callback(response.body);
     });
 }
