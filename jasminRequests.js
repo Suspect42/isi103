@@ -172,13 +172,13 @@ function getFatura2(callback) {
 
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        var body = response.body;
-        console.log('BODY: ');
-        console.log(body.payableAmount);
+        var body = JSON.parse(response.body);
+        //console.log('BODY: ');
+        //console.log(body.payableAmount);
         var documentLines = body.documentLines;
         var line = '';
         var artigosFatura = [];
-        /*
+        
         for (i in documentLines) {
             line = {              
                 custo: documentLines[i].unitPrice.amount,
@@ -193,7 +193,7 @@ function getFatura2(callback) {
             total: body.payableAmount.amount,
             artigos: artigosFatura
         };
-        return callback(fs);*/
+        return callback(fs);
     });
 }
 
