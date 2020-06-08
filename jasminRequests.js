@@ -158,8 +158,8 @@ function getFatura2(callback) {
     idFatura = idFatura.replace('"', '');
     idFatura = idFatura.replace('"', '');
 
-    console.log('ID FATURA: ')
-    console.log(idFatura);
+    //console.log('ID FATURA: ')
+    //console.log(idFatura);
 
     options = {
         'method': 'GET',
@@ -173,8 +173,8 @@ function getFatura2(callback) {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         var body = response.body;
-        //console.log('BODY: ');
-        //console.log(body);
+        console.log('BODY: ');
+        console.log(body);
         var documentLines = body.documentLines;
         var line = '';
         var artigosFatura = [];
