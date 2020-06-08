@@ -180,6 +180,7 @@ function getFatura2(callback) {
         var artigosFatura = [];
         
         for (i in documentLines) {
+            console.log(documentLines[i].amount)
             line = {              
                 custo: documentLines[i].unitPrice.amount,
                 quantidade: documentLines[i].quantity,
